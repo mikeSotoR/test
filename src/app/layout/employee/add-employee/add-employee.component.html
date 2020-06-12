@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <form>
+    <div class="row mt-5">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 align-fields">
+        <mat-form-field appearance="outline" class="fields">
+          <!--<mat-icon matPrefix class="mr-2">home_work</mat-icon>-->
+          <mat-label>Nombre del empleado</mat-label>
+          <input maxlength="30" matInput [formControl]="name" [(ngModel)]="employee.name" required>
+          <mat-error>
+            <span *ngIf="!name.valid">Favor de ingresar un nombre válido</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 align-fields">
+        <mat-form-field appearance="outline" class="fields">
+          <mat-label>Apellido del empleado</mat-label>
+          <input maxlength="30" matInput [formControl]="lastName" [(ngModel)]="employee.last_name" required>
+          <mat-error>
+            <span *ngIf="!lastName.valid">Favor de ingresar un apellido válida</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 align-fields">
+        <mat-form-field appearance="outline" style=" margin-bottom: -1.25em" (click)="pickerIni.open()" class="fields">
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input required #inputIni matInput (click)="pickerIni.open()" [matDatepicker]="pickerIni"
+          [min]="minDateIni" [max]="maxDateIni" [(ngModel)]="birthday" [ngModelOptions]="{standalone: true}">
+          <mat-datepicker-toggle matSuffix [for]="pickerIni"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #pickerIni></mat-datepicker>
+          <mat-error>
+            <span>Favor de ingresar una fecha de nacimiento válida</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-3"></div>
+      <div class="col-md-3 align-fields">
+        <a (click)="cancel()" class="list-group-item2">
+          <span class="color"><button mat-button>
+            <i class="fa fa-plus"aria-hidden="true"></i> Cancelar</button>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3 align-fields">
+        <a (click)="saveEmployee()" class="list-group-item2">
+          <span class="color"><button type="submit" mat-button>
+            <i class="fa fa-plus"aria-hidden="true"></i> Guardar</button>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </form>
+</div>

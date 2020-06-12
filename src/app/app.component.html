@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="text-align: center;">
+      <div class="btn-group btn-group-toggle" style="margin: auto;" ngbRadioGroup name="radioBasic" [(ngModel)]="radioOption" (change)="radioChange()">
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" [value]="1" routerLink="/init"> Inicio
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="2" routerLink="/employee"> Empleados
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" [value]="3" routerLink="/group"> Grupos
+        </label>
+      </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<router-outlet></router-outlet>
